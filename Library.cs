@@ -11,17 +11,48 @@ namespace Library_Managment
         private List<Book> _books = new List<Book>();
 
         private List<Book> _borrowedBooks = new List<Book>();
-        public List<Book> DisplayBooks()
+        public void DisplayBooks()
         {
-            return _books;
+            foreach(Book book in _books)
+                Console.WriteLine(book.Title);
         }
-        private void AddBook(string bookTitle)
+        public void AddBook(Book book)
         {
-            //Some Code
+            _books.Add(book);
+            Console.WriteLine("Book added succesfully");
         }
-        private void RemoveBook(string bookTitle)
+        public void RemoveBook(string bookTitle)
         {
-            //Some Code
+            Book book = SearchBookbyName(bookTitle);
+            if ( book != null)
+            {
+                _books.Remove(book);
+                Console.WriteLine("Book removed succesfully");
+            }
+            else
+                Console.WriteLine("Error; book not found");
+        }
+
+        public void BorrowBook(string bookTitle)
+        {
+            Book book = SearchBookbyName(bookTitle);
+            if( book != null )
+            {
+                _borrowedBooks.Add(book);
+                Console.WriteLine("Book borrowed successfully");
+            }
+            else
+                Console.WriteLine("Book is not found");
+        }
+
+        public Book SearchBookbyName(string name)
+        {
+            foreach (Book book in _books)
+            {
+                if (book.Title.Equals(name))
+                    return book;
+            }
+            return null;
         }
     }
 }

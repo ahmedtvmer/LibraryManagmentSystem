@@ -9,13 +9,19 @@ namespace Library_Managment
     internal class Librarian : User
     {
         private int _employeeID;
-        private void AddBook(string bookTitle)
+
+        public Librarian(string name, int ID)
         {
-            //Some Code
+            this.Name = name;
+            this._employeeID = ID;
         }
-        private void RemoveBook(string bookTitle)
+        public void AddBook(Book book, Library library)
         {
-            //Some Code
+            library.AddBook(book);
+        }
+        public void RemoveBook(string title, Library library)
+        {
+            library.RemoveBook(title);
         }
     }
 }

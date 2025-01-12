@@ -10,5 +10,9 @@ namespace Library_Managment
     {
         public string Name { get; set; }
         public string password { get; set; }
+        public void Display(Library library)
+        {
+            library.DisplayBooks();
+        }
     }
 }

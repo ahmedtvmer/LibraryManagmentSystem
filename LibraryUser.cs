@@ -9,5 +9,15 @@ namespace Library_Managment
     internal class LibraryUser : User
     {
         public LibraryCard Card { get; set; }
+
+        public void BorrowBook(string bookTitle, Library library)
+        {
+            library.BorrowBook(bookTitle);
+        }
+
+        public LibraryUser(string name)
+        {
+            this.Name = name;
+        }
     }
 }
