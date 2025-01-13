@@ -1,1 +1,1 @@
-# Library Managment System using c# oop
+# Simple Library Managment System using c#
